@@ -1,0 +1,1 @@
+INSERT INTO `monster` (`id`, `species_name`, `species_family`, `species_diet`, `species_flight`, `species_swim`, `species_origin`) VALUES (0, 'Kracken', 'Cephalopod', 'Piscivore', 0, 1, 'Norse');

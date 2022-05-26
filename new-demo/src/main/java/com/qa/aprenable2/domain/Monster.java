@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
 @Entity
 public class Monster {
 
@@ -36,7 +37,6 @@ public class Monster {
 	private String speciesOrigin;
 
 //	CONSTRUCTORS
-
 	public Monster(long id, String speciesName, String speciesFamily, String speciesDiet, boolean speciesFlight,
 			boolean speciesSwim, String speciesOrigin) {
 		super();
@@ -48,7 +48,7 @@ public class Monster {
 		this.speciesSwim = speciesSwim;
 		this.speciesOrigin = speciesOrigin;
 	}
-
+	
 	public Monster(String speciesName, String speciesFamily, String speciesDiet, boolean speciesFlight,
 			boolean speciesSwim, String speciesOrigin) {
 		super();
@@ -65,7 +65,6 @@ public class Monster {
 	}
 
 //	GETTERS AND SETTERS
-
 	public long getId() {
 		return id;
 	}
@@ -143,5 +142,5 @@ public class Monster {
 				&& Objects.equals(speciesName, other.speciesName) && Objects.equals(speciesOrigin, other.speciesOrigin)
 				&& speciesSwim == other.speciesSwim;
 	}
-
+	
 }

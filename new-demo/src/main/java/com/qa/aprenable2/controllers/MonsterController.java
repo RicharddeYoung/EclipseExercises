@@ -51,6 +51,16 @@ public class MonsterController {
 	public ResponseEntity<List<Monster>> getByFamily(@PathVariable String speciesFamily) {
 		return new ResponseEntity<List<Monster>>(service.getByFamily(speciesFamily), HttpStatus.OK);
 	}
+	
+	@GetMapping("/getByOriginAndFamily/{speciesOrigin}/{speciesFamily}")
+	public ResponseEntity<List<Monster>>getByOriginAndFamily(@PathVariable String speciesOrigin, @PathVariable String speciesFamily) {
+		return new ResponseEntity<List<Monster>>(service.getByOriginAndFamily(speciesOrigin, speciesFamily), HttpStatus.OK);
+	}
+	
+	@GetMapping("/getByDietAndFamily/{speciesDiet}/{speciesFamily}")
+	public ResponseEntity<List<Monster>>getByDietAndFamily(@PathVariable String speciesDiet, @PathVariable String speciesFamily) {
+		return new ResponseEntity<List<Monster>>(service.getByDietAndFamily(speciesDiet, speciesFamily), HttpStatus.OK);
+	}
 
 //	UPDATE - Put/Patch Request - @PutMapping
 	@PutMapping("/update/{id}")

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import com.qa.aprenable2.domain.Monster;
+import com.qa.aprenable2.exceptions.MonsterNotFoundExceptionWithId;
 import com.qa.aprenable2.interfaces.MonsterRepo;
 
 @Service
@@ -22,7 +23,8 @@ public class MonsterService {
 
 //	READ
 	public Monster getById(long id) {
-		return repo.findById(id).get();
+//		return repo.findById(id).orElseThrow(MonsterNotFoundException::new);
+		return repo.findById(id).orElseThrow(() -> new MonsterNotFoundExceptionWithId(id));
 	}
 
 	public List<Monster> getAll() {
@@ -35,6 +37,14 @@ public class MonsterService {
 	
 	public List<Monster> getByFamily(String speciesFamily) {
 		return repo.findMonsterBySpeciesFamily(speciesFamily);
+	}
+	
+	public List<Monster> getByOriginAndFamily(String speciesOrigin, String speciesFamily) {
+		return repo.findMonsterByOriginAndFamily(speciesOrigin, speciesFamily);
+	}
+	
+	public List<Monster> getByDietAndFamily(String speciesDiet, String speciesFamily) {
+		return repo.findMonsterByDietAndFamily(speciesDiet, speciesFamily);
 	}
 
 //	UPDATE
